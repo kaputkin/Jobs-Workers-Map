@@ -7,35 +7,53 @@ var map =
     }).addTo(map);
 
 
-var finance10_15 = L.tileLayer('data/Finance10_15/data/{z}/{x}/{y}.png', {
-  maxZoom: 15
-}).addTo(map);
+//Finance
+    var finance10_15 = L.tileLayer('data/Finance10_15/data/{z}/{x}/{y}.png', {
+      maxZoom: 15
+    }).addTo(map);
 
-var finance10_05 = L.tileLayer('data/Finance10_05/data/{z}/{x}/{y}.png', {
-  maxZoom: 15
-})
+    var finance10_05 = L.tileLayer('data/Finance10_05/data/{z}/{x}/{y}.png', {
+      maxZoom: 15
+    })
 
-var Accommodation10_05 = L.tileLayer('data/Accommodation10_05/data/{z}/{x}/{y}.png', {
-  maxZoom: 15
-})
+//Accomodation
+    var Accommodation10_05 = L.tileLayer('data/Accommodation10_05/data/{z}/{x}/{y}.png', {
+      maxZoom: 15
+    })
 
-var Accommodation10_15 = L.tileLayer('data/Accommodation10_15/data/{z}/{x}/{y}.png', {
-  maxZoom: 15
-})
+    var Accommodation10_15 = L.tileLayer('data/Accommodation10_15/data/{z}/{x}/{y}.png', {
+      maxZoom: 15
+    })
 
-var Total10_15 = L.tileLayer('data/Total10_15/Total10h_15/data/{z}/{x}/{y}.png', {
-                  maxZoom: 15
-                    })
-                L.tileLayer('data/Total10_15/Total10w_15//data/{z}/{x}/{y}.png', {
-                  maxZoom: 15})
+//Total 2015
+    var Total10h_15 = L.tileLayer('data/Total10_15/Total10h_15/data/{z}/{x}/{y}.png', {
+                        maxZoom: 15
+    })
 
+    var Total10w_15 = L.tileLayer('data/Total10_15/Total10w_15/data/{z}/{x}/{y}.png', {
+                        maxZoom: 15
+    })
+
+    var Total10_15 = L.layerGroup([Total10h_15,Total10w_15]);
+
+//Total 2005
+    var Total10h_05 = L.tileLayer('data/Total10_05/Total10_h_05/data/{z}/{x}/{y}.png', {
+                        maxZoom: 15
+    })
+
+    var Total10w_05 = L.tileLayer('data/Total10_05/Total10_w_05/data/{z}/{x}/{y}.png', {
+                        maxZoom: 15
+    })
+
+    var Total10_05 = L.layerGroup([Total10h_05,Total10w_05]);
 
 var Sectorslayer = {
   "Finance 2005": finance10_05,
   "Finance 2015": finance10_15,
   "Accommodation 2005": Accommodation10_05,
   "Accommodation 2015": Accommodation10_15,
-  "Total 2015": Total10_15
+  "Total 2015": Total10_15,
+  "Total 2005": Total10_05
 };
 
 L.control.layers(Sectorslayer,null,{collapsed:false, position: 'topright'}).addTo(map);
