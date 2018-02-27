@@ -1,0 +1,22 @@
+{
+    "interactivity": "false", 
+    "_updated": "1519766086000", 
+    "scale": "1", 
+    "autoscale": "true", 
+    "center": "-73.9806,40.7015,10", 
+    "format": "png8", 
+    "description": "", 
+    "metatile": "2", 
+    "bounds": "-74.3761,40.4125,-73.4917,40.983", 
+    "json": "{\"Stylesheet\":[{\"data\":\"Map {}\\n\\n#admin10w05 {\\n  marker-width:.3;\\n  marker-fill:#35ff59;\\n  marker-line-width:0;\\n  marker-allow-overlap:true;\\n  [zoom < 11]{marker-width:.5;} \\n  [zoom = 11]{marker-width:.8;} \\n  [zoom = 12]{marker-width:1;} \\n  [zoom = 13]{marker-width:1.3;} \\n  [zoom = 14]{marker-width:1.7;} \\n  [zoom = 15]{marker-width:2;} \\n}\\n \\n#admin10h05 {\\n  marker-width:.3;\\n  marker-fill:#ff004a;\\n  marker-line-width:0;\\n  marker-allow-overlap:true;\\n  [zoom < 11]{marker-width:.5;} \\n  [zoom = 11]{marker-width:.8;} \\n  [zoom = 12]{marker-width:1;} \\n  [zoom = 13]{marker-width:1.3;} \\n  [zoom = 14]{marker-width:1.7;} \\n  [zoom = 15]{marker-width:2;} \\n}\\n\\n\",\"id\":\"style.mss\"}],\"Layer\":[{\"geometry\":\"point\",\"extent\":[-74.25209065658952,40.50197662554502,-73.70380743432776,40.91267557895815],\"id\":\"admin10h05\",\"class\":\"admin10h05\",\"Datasource\":{\"file\":\"/Users/joannasimon 1/Documents/MapBox/project/Admin10_05/layers/admin10h05.geojson\",\"layer\":\"OGRGeoJSON\",\"type\":\"ogr\"},\"layer\":null,\"srs-name\":\"autodetect\",\"srs\":\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\",\"advanced\":{},\"name\":\"admin10h05\"},{\"geometry\":\"point\",\"extent\":[-74.2511846109202,40.50774676645556,-73.71215335525577,40.91138830369753],\"id\":\"admin10w05\",\"class\":\"admin10w05\",\"Datasource\":{\"file\":\"/Users/joannasimon 1/Documents/MapBox/project/Admin10_05/layers/admin10w05.geojson\",\"layer\":\"OGRGeoJSON\",\"type\":\"ogr\"},\"layer\":null,\"srs-name\":\"autodetect\",\"srs\":\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\",\"advanced\":{},\"name\":\"admin10w05\"}],\"tiles\":[\"http://127.0.0.1:20008/tile/Admin10_05/{z}/{x}/{y}.png?updated=1519766086000&metatile=2&scale=1\"],\"grids\":[\"http://127.0.0.1:20008/tile/Admin10_05/{z}/{x}/{y}.grid.json?updated=1519766086000&metatile=2&scale=1\"]}", 
+    "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
+    "minzoom": "10", 
+    "version": "1.0.0", 
+    "template": "", 
+    "maxzoom": "15", 
+    "attribution": "", 
+    "tilejson": "2.0.0", 
+    "scheme": "xyz", 
+    "id": "Admin10_05", 
+    "name": "Admin10_05"
+}
