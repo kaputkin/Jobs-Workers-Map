@@ -15,10 +15,21 @@ var finance10_05 = L.tileLayer('data/Finance10_05/data/{z}/{x}/{y}.png', {
   maxZoom: 15
 })
 
+var Accommodation10_05 = L.tileLayer('data/Accommodation10_05/data/{z}/{x}/{y}.png', {
+  maxZoom: 15
+})
+
+var Accommodation10_15 = L.tileLayer('data/Accommodation10_15/data/{z}/{x}/{y}.png', {
+  maxZoom: 15
+})
+
+
 
 var Sectorslayer = {
   "Finance 2005": finance10_05,
-  "Finance 2015": finance10_15
+  "Finance 2015": finance10_15,
+  "Accommodation 2005": Accommodation10_05,
+  "Accommodation 2015": Accommodation10_15
 };
 
 L.control.layers(Sectorslayer,null,{collapsed:false, position: 'topright'}).addTo(map);
