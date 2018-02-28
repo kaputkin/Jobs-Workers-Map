@@ -6,7 +6,6 @@ var map =
     	ext: 'png'
     }).addTo(map);
 
-
 //Finance
     var finance10_15 = L.tileLayer('data/Finance10_15/data/{z}/{x}/{y}.png', {
       maxZoom: 15
@@ -34,7 +33,7 @@ var map =
                         maxZoom: 15
     });
 
-    var Total10_15 = L.layerGroup([Total10h_15,Total10w_15]).addTo(map);
+    var Total10_15 = L.layerGroup([Total10h_15,Total10w_15]);
 
 //Total 2005
     var Total10h_05 = L.tileLayer('data/Total10_05/Total10_h_05/data/{z}/{x}/{y}.png', {
@@ -56,23 +55,41 @@ var map =
                         maxZoom: 15
     });
 
+//Art
+    var Admin10_05 = L.tileLayer('data/Admin10_05/data/{z}/{x}/{y}.png', {
+                            maxZoom: 15
+    });
+
+    var Admin10_15 = L.tileLayer('data/Admin10_15/data/{z}/{x}/{y}.png', {
+                            maxZoom: 15
+    })
+
+    var artLayers = [Admin10_05, Admin10_15];
+    layerGroup = L.layerGroup(artLayers);
+
+var sliderControl = L.control.sliderControl({
+          position: "topright",
+          layer: layerGroup,
+          range: true
+        });
+map.addControl(sliderControl);
+sliderControl.startSlider();
 
 
 
+// L.control.sideBySide(Admin10_05,Admin10_15).addTo(map);
 
-
-
-// $('#my-map').beforeAfter(before, after);
-
-var Sectorslayer = {
-  "Art & Enternatinment  2005": Art10_05,
-  "Art & Enternatinment 2015": Art10_15,
-  "Finance 2005": finance10_05,
-  "Finance 2015": finance10_15,
-  "Accommodation 2005": Accommodation10_05,
-  "Accommodation 2015": Accommodation10_15,
-  "Total 2015": Total10_15,
-  "Total 2005": Total10_05
-};
-
-L.control.layers(Sectorslayer,null,{collapsed:false, position: 'topright'}).addTo(map);
+// var Sectorslayer = {
+//   "Art & Enternatinment  2005": Art10_05,
+//   "Art & Enternatinment 2015": Art10_15,
+//   "Finance 2005": finance10_05,
+//   "Finance 2015": finance10_15,
+//   "Accommodation 2005": Accommodation10_05,
+//   "Accommodation 2015": Accommodation10_15,
+//   "Total 2015": Total10_15,
+//   "Total 2005": Total10_05,
+//   "Administration 2015": Admin10_15,
+//   "Administration 2005": Admin10_05
+// };
+//
+// L.control.layers(Sectorslayer,null,{collapsed:false, position: 'topright'}).addTo(map);
