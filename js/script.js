@@ -100,14 +100,18 @@ var subway = L.layerGroup([lines,stops]).addTo(map);
                         maxZoom: 15
     });
 
-//Art
+      var artSide = L.layerGroup([Art10_05,Art10_15]).addTo(map);
+
+//Admin
     var Admin10_05 = L.tileLayer('data/Admin10_05/data/{z}/{x}/{y}.png', {
                             maxZoom: 15
-    }).addTo(map);
+    });
 
     var Admin10_15 = L.tileLayer('data/Admin10_15/data/{z}/{x}/{y}.png', {
                             maxZoom: 15
-    }).addTo(map);
+    });
+
+      var adminSide = L.layerGroup([Admin10_05,Admin10_15]);
 
 
 //     var artLayers = [Admin10_05, Admin10_15];
@@ -121,19 +125,15 @@ var subway = L.layerGroup([lines,stops]).addTo(map);
 // map.addControl(sliderControl);
 // sliderControl.startSlider();
 
-L.control.sideBySide(Admin10_05,Admin10_15).addTo(map);
-
 var Sectorslayer = {
-  "Art & Enternatinment  2005": Art10_05,
-  "Art & Enternatinment 2015": Art10_15,
+  "Art & Enternatinment": artSide,
   "Finance 2005": finance10_05,
   "Finance 2015": finance10_15,
   "Accommodation 2005": Accommodation10_05,
   "Accommodation 2015": Accommodation10_15,
   "Total 2015": Total10_15,
   "Total 2005": Total10_05,
-  "Administration 2015": Admin10_15,
-  "Administration 2005": Admin10_05
+  "Administration": adminSide
 };
 
 var Subwaylayer = {
@@ -141,3 +141,6 @@ var Subwaylayer = {
 };
 
 L.control.layers(Sectorslayer,Subwaylayer,{collapsed:false, position: 'topright'}).addTo(map);
+
+
+L.control.sideBySide([subway, Art10_05, Admin10_05],[subway, Art10_15, Admin10_15]).addTo(map);
