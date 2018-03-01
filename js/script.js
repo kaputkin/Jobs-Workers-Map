@@ -115,19 +115,31 @@ var subway = L.layerGroup([lines,stops]);
     var Healthcare10_15 = L.tileLayer('data/Healthcare10_15/data/{z}/{x}/{y}.png', {
                                 maxZoom: 15
     });
+//Wholesale
+    var Wholesale10_05 = L.tileLayer('data/Wholesale10_05/data/{z}/{x}/{y}.png', {
+                                    maxZoom: 15
+    });
+
+    var Wholesale10_15 = L.tileLayer('data/Wholesale10_15/data/{z}/{x}/{y}.png', {
+                                    maxZoom: 15
+    });
+
+
 
 
 //Layer Groups
 var artSide = L.layerGroup([Art10_05,Art10_15]);
 var adminSide = L.layerGroup([Admin10_05,Admin10_15]);
 var accommodationSide = L.layerGroup([Accommodation10_05,Accommodation10_15]);
-var healthcareSide = L.layerGroup([Healthcare10_05,Healthcare10_15]);
+var healthcareSide = L.layerGroup([Healthcare10_05,Healthcare10_15]);  // check 2015 workers
+var wholesaleSide = L.layerGroup([Wholesale10_05,Wholesale10_15]);
 
 var Sectorslayer = {
   "Art & Enternatinment": artSide,
   "Administration": adminSide,
   "Accommodation" : accommodationSide,
-  "Healthcare" : healthcareSide
+  "Healthcare" : healthcareSide,
+  "Wholesale" :wholesaleSide
 };
 
 var subwayLayer = {
@@ -136,7 +148,7 @@ var subwayLayer = {
 
 L.control.layers(Sectorslayer,subwayLayer,{collapsed:false, position: 'topright'}).addTo(map);
 
-L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05],[Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15]).addTo(map);
+L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05],[Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15]).addTo(map);
 
 
 // --- Slider Control ---
