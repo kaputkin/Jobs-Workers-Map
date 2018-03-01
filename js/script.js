@@ -48,8 +48,7 @@ var stops = L.geoJSON(subwaystops, {
                 return L.circleMarker(latlng, stopsMarkerOptions);}
             });
 
-var subway = L.layerGroup([lines,stops]).addTo(map);
-
+var subway = L.layerGroup([lines,stops]);
 
 //Finance
     var finance10_15 = L.tileLayer('data/Finance10_15/data/{z}/{x}/{y}.png', {
@@ -100,8 +99,6 @@ var subway = L.layerGroup([lines,stops]).addTo(map);
                         maxZoom: 15
     });
 
-      var artSide = L.layerGroup([Art10_05,Art10_15]).addTo(map);
-
 //Admin
     var Admin10_05 = L.tileLayer('data/Admin10_05/data/{z}/{x}/{y}.png', {
                             maxZoom: 15
@@ -110,13 +107,41 @@ var subway = L.layerGroup([lines,stops]).addTo(map);
     var Admin10_15 = L.tileLayer('data/Admin10_15/data/{z}/{x}/{y}.png', {
                             maxZoom: 15
     });
+//Healthcare
+    var Healthcare10_05 = L.tileLayer('data/Healthcare10_05/data/{z}/{x}/{y}.png', {
+                                maxZoom: 15
+    });
 
-      var adminSide = L.layerGroup([Admin10_05,Admin10_15]);
+    var Healthcare10_15 = L.tileLayer('data/Healthcare10_15/data/{z}/{x}/{y}.png', {
+                                maxZoom: 15
+    });
 
 
-//     var artLayers = [Admin10_05, Admin10_15];
-//     layerGroup = L.layerGroup(artLayers);
-//
+//Layer Groups
+var artSide = L.layerGroup([Art10_05,Art10_15]);
+var adminSide = L.layerGroup([Admin10_05,Admin10_15]);
+var accommodationSide = L.layerGroup([Accommodation10_05,Accommodation10_15]);
+var healthcareSide = L.layerGroup([Healthcare10_05,Healthcare10_15]);
+
+var Sectorslayer = {
+  "Art & Enternatinment": artSide,
+  "Administration": adminSide,
+  "Accommodation" : accommodationSide,
+  "Healthcare" : healthcareSide
+};
+
+var subwayLayer = {
+  "Subway" : subway
+};
+
+L.control.layers(Sectorslayer,subwayLayer,{collapsed:false, position: 'topright'}).addTo(map);
+
+L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05],[Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15]).addTo(map);
+
+
+// --- Slider Control ---
+
+// layerGroup = L.layerGroup(artLayers);
 // var sliderControl = L.control.sliderControl({
 //           position: "topright",
 //           layer: layerGroup,
@@ -124,23 +149,3 @@ var subway = L.layerGroup([lines,stops]).addTo(map);
 //         });
 // map.addControl(sliderControl);
 // sliderControl.startSlider();
-
-var Sectorslayer = {
-  "Art & Enternatinment": artSide,
-  "Finance 2005": finance10_05,
-  "Finance 2015": finance10_15,
-  "Accommodation 2005": Accommodation10_05,
-  "Accommodation 2015": Accommodation10_15,
-  "Total 2015": Total10_15,
-  "Total 2005": Total10_05,
-  "Administration": adminSide
-};
-
-var Subwaylayer = {
-  "Subway" : subway
-};
-
-L.control.layers(Sectorslayer,Subwaylayer,{collapsed:false, position: 'topright'}).addTo(map);
-
-
-L.control.sideBySide([subway, Art10_05, Admin10_05],[subway, Art10_15, Admin10_15]).addTo(map);
