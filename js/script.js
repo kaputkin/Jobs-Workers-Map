@@ -6,6 +6,15 @@ var map =
     	ext: 'png'
     }).addTo(map);
 
+
+var walkStyle = {
+        color: "black",
+        fillOpacity: .5
+      };
+
+var tenMin = L.geoJSON(walkBuffer, {style: walkStyle}).addTo(map);
+
+
 var lines = L.geoJSON(subwaylines, {
       style:
       function(feature) {
@@ -207,7 +216,8 @@ var Sectorslayer = {
 };
 
 var subwayLayer = {
-  "Subway" : subway
+  "Subway" : subway,
+  "10 Minute Walk </br>&emsp;&emsp;From Subway" : tenMin
 };
 
 L.control.layers(Sectorslayer,subwayLayer,{collapsed:false, position: 'topright'}).addTo(map);
