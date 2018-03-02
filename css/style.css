@@ -5,3 +5,55 @@
   bottom: 0;
   left: 0;
 }
+
+#title-container {
+  color: #afafaf;
+  position: absolute;
+  z-index: 1000;
+  top: 11px;
+  left: 56px;
+  background: #323132;
+  padding: 15px;
+  border-radius: 5%;
+}
+
+#year2005{
+  color: #afafaf;
+  position: absolute;
+  z-index: 1000;
+  top: 90%;
+  left: 3%;
+  background: #323132;
+  padding: 15px;
+  border-radius: 5%;
+}
+
+#year2015{
+  color: #afafaf;
+  position: absolute;
+  z-index: 1000;
+  top: 90%;
+  left: 91%;
+  background: #323132;
+  padding: 15px;
+  border-radius: 5%;
+}
+
+}
+.center {
+    display: block;
+    margin-left: 40px;
+
+}
+
+h1{
+  margin: 0;
+  font-family: 'Lekton', sans-serif;
+  font-size: 30px;
+}
+
+p {
+  font-size: 21px;
+  font-family: 'Lekton', sans-serif;
+  margin-top: 0px;
+}
