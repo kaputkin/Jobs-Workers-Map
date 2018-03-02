@@ -12,7 +12,7 @@ var walkStyle = {
         fillOpacity: .5
       };
 
-var tenMin = L.geoJSON(walkBuffer, {style: walkStyle}).addTo(map);
+var tenMin = L.geoJSON(walkBuffer, {style: walkStyle});
 
 
 var lines = L.geoJSON(subwaylines, {
