@@ -39,7 +39,10 @@
   border-radius: 5%;
 }
 
+#button {
+       width: 100px;
 }
+
 .center {
     display: block;
     margin-left: 40px;
