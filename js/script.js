@@ -224,8 +224,18 @@ L.control.layers(null,subwayLayer,{collapsed:false, position: 'topright'}).addTo
 L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05],
                      [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_05, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15]).addTo(map);
 
-
+var toggle = false;
 //Add Buttons
+
+    //Subway Button
+    $("#Subway").click(function togglelayer() {
+      if(!toggle) {
+        map.removeLayer(subway);
+      } else {
+        map.addLayer(subway);
+      }
+      toggle = !toggle;
+    });
 
     //Finance Button
     $("#Finance").click(function() {
@@ -305,18 +315,3 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
     layerGroup.addLayer(total_hSide)
     layerGroup.addLayer(total_wSide)
     });
-
-    $("#Subway").click(function() {
-    layerGroup.removeLayer(subway);
-    layerGroup.addLayer(subway)
-    });
-
-//toggle for subway layer
-  function togglePoints() {
-    if(!toggle) {
-
-    } else {
-      map.addLayer(subway);
-    }
-    toggle = !toggle;
-  }
