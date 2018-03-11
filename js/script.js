@@ -94,7 +94,6 @@ var subway = L.layerGroup([lines,stops]);
                             maxZoom: 15
         });
 
-        var Total10_15 = L.layerGroup([Total10h_15,Total10w_15]);
 
     //Total 2005
         var Total10h_05 = L.tileLayer('data/Total10_05/Total10_h_05/data/{z}/{x}/{y}.png', {
@@ -104,8 +103,6 @@ var subway = L.layerGroup([lines,stops]);
         var Total10w_05 = L.tileLayer('data/Total10_05/Total10_w_05/data/{z}/{x}/{y}.png', {
                             maxZoom: 15
         });
-
-        var Total10_05 = L.layerGroup([Total10h_05,Total10w_05]);
 
     //Art
         var Art10_05 = L.tileLayer('data/Art10_05/data/{z}/{x}/{y}.png', {
@@ -210,7 +207,11 @@ var professionalSide = L.layerGroup([Professional10_05,Professional10_15]);
 var pubAdminSide = L.layerGroup([PubAdmin10_05,PubAdmin10_15]);
 var realEstateSide = L.layerGroup([RealEstate10_05,RealEstate10_15]);
 var financeSide = L.layerGroup([Finance10_05,Finance10_15]);
-var totalSide = L.layerGroup([Total10_05,Total10_15]);
+var total_hSide = L.layerGroup([Total10h_05,Total10h_15]);
+var total_wSide = L.layerGroup([Total10w_05,Total10w_15]);
+
+
+
 
 //sets up subway + walkshed control layer
 var subwayLayer = {
@@ -220,17 +221,11 @@ var subwayLayer = {
 
 L.control.layers(null,subwayLayer,{collapsed:false, position: 'topright'}).addTo(map);
 
-L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05,Total10_05],
-                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_05, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15,Total10_15]).addTo(map);
+L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05],
+                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_05, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15]).addTo(map);
 
 
 //Add Buttons
-
-    //Finance Button
-    $("#Total").click(function() {
-    layerGroup.clearLayers();
-    layerGroup.addLayer(totalSide)
-    });
 
     //Finance Button
     $("#Finance").click(function() {
@@ -304,16 +299,22 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
     layerGroup.addLayer(realEstateSide)
     });
 
-    $("#Subway").click(function() {
+    //Total Button
+    $("#Total").click(function() {
     layerGroup.clearLayers();
-    layerGroup.addLayer(subway)
+    layerGroup.addLayer(total_hSide)
+    layerGroup.addLayer(total_wSide)
     });
 
+    $("#Subway").click(function() {
+    layerGroup.removeLayer(subway);
+    layerGroup.addLayer(subway)
+    });
 
 //toggle for subway layer
   function togglePoints() {
     if(!toggle) {
-      map.removeLayer(subway);
+
     } else {
       map.addLayer(subway);
     }
