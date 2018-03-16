@@ -9,6 +9,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css?v=1.0">
   <title>Jobs and Workers</title>
+  <script src="js/jquery.hashchange.js" type="text/javascript"></script>
+  <script src="js/jquery.easytabs.js" type="text/javascript"></script>
+
+
 </head>
 
 
@@ -19,76 +23,84 @@
   <div id="title-container">
       <h1>Jobs and </br> Workers</h1>
 
-      <div class="tabs">
-         <div class="tab">
-             <input type="radio" id="tab-1" name="tab-group-1" checked>
-             <label for="tab-1">Layers</label>
-             <div class="content">
-                <div class ="panel-contrainer">
-               <!-- Subway and Walkshed -->
-                       <div class="[ form-group ]">
-                           <input type="checkbox" name="Subway" id="Subway" autocomplete="off" />
-                           <div class="[ btn-group ]">
-                               <label for="Subway" class="[ btn btn-default ]">
-                                   <span class="[ glyphicon glyphicon-ok ]"></span>
-                                   <span> </span>
-                               </label>
-                               <label for="Subway" class="[ btn btn-default active ]">
-                                   Subway
-                               </label>
-                           </div>
-                       </div>
-                       <div class="[ form-group ]">
-                           <input type="checkbox" name="Walkshed" id="Walkshed" autocomplete="off" />
-                           <div class="[ btn-group ]">
-                               <label for="Walkshed" class="[ btn btn-default ]">
-                                   <span class="[ glyphicon glyphicon-ok ]"></span>
-                                   <span> </span>
-                               </label>
-                               <label for="Walkshed" class="[ btn btn-default active ]">
-                                   10 Minute Walkshed
-                               </label>
-                           </div>
-                       </div>
-               <!-- Sector bottons -->
-                       <div class="btn-group-vertical btn-group-toggle form-control" data-toggle="buttons">
-                              <div class="btn active" role="button" id = "Total"> <input type="radio" name="options" value="1" required="required">Total</div>
-                              <div class="btn" role="button" id = "Accommodation"><input type="radio" name="options" value="0">Accomodation</div>
-                              <div class="btn" role="button" id = "Art"><input type="radio" name="options" value="0">Art</div>
-                              <div class="btn" role="button" id = "Administration"><input type="radio" name="options" value="0">Administration</div>
-                              <div class="btn" role="button" id = "Healthcare"><input type="radio" name="options" value="0">Healthcare</div>
-                              <div class="btn" role="button" id = "Wholesale"><input type="radio" name="options" value="0">Wholesale</div>
-                              <div class="btn" role="button" id = "Construction"><input type="radio" name="options" value="0">Construction</div>
-                              <div class="btn" role="button" id = "Management"><input type="radio" name="options" value="0">Management</div>
-                              <div class="btn" role="button" id = "Manufacturing"><input type="radio" name="options" value="0">Manufacturing</div>
-                              <div class="btn" role="button" id = "Professional"><input type="radio" name="options" value="0">Professional</div>
-                              <div class="btn" role="button" id = "PublicAdmin"><input type="radio" name="options" value="0">PublicAdmin</div>
-                              <div class="btn" role="button" id = "RealEstate"><input type="radio" name="options" value="0">Real Estate</div>
-                              <div class="btn" role="button" id = "Finance"><input type="radio" name="options" value="0">Finance</div>
-                       </div>
-                    </div>
-             </div>
-         </div>
 
-         <div class="tab">
-             <input type="radio" id="tab-2" name="tab-group-1">
-             <label for="tab-2">Tab Two</label>
-             <div class="content">
-                 <p>Stuff for Tab Two</p>
-                 <img src="http://placekitten.com/200/100">
-             </div>
-         </div>
+      <div id="tabs">
+          <ul id="tab_links">
+                  <li id="tab1" class="active">MAP </br> LAYERS</li>
+                  <li id="tab2">ABOUT</li>
+                  <li id="tab3">ABOUT THE </br> DATA</li>
+          </ul>
+              <div id="tab_contents">
+                      <div id="tab1_content">
 
-          <div class="tab">
-             <input type="radio" id="tab-3" name="tab-group-1">
-             <label for="tab-3">Tab Three</label>
-             <div class="content">
-                 <p>Stuff for Tab Three</p>
-                 <img src="http://placedog.com/200/100">
-             </div>
-         </div>
+                        <!-- DIV FOR CONTROLS  -->
+                        <div class=control-menu>
+                             <!-- Subway and Walkshed -->
+                                <div class="[ form-group ]">
+                                    <input type="checkbox" name="Subway" id="Subway" autocomplete="off" />
+                                    <div class="[ btn-group ]">
+                                        <label for="Subway" class="[ btn btn-default ]">
+                                            <span class="[ glyphicon glyphicon-ok ]"></span>
+                                            <span> </span>
+                                        </label>
+                                        <label for="Subway" class="[ btn btn-default active ]">
+                                            Subway
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="[ form-group ]">
+                                    <input type="checkbox" name="Walkshed" id="Walkshed" autocomplete="off" />
+                                    <div class="[ btn-group ]">
+                                        <label for="Walkshed" class="[ btn btn-default ]">
+                                            <span class="[ glyphicon glyphicon-ok ]"></span>
+                                            <span> </span>
+                                        </label>
+                                        <label for="Walkshed" class="[ btn btn-default active ]">
+                                            10 Minute Walkshed
+                                        </label>
+                                    </div>
+                                </div>
+                        <!-- Sector bottons -->
+                                <div class="btn-group-vertical btn-group-toggle form-control" data-toggle="buttons">
+                                       <div class="btn" role="button" id = "Total"> <input type="radio" name="options" value="1" required="required">Total</div>
+                                       <div class="btn" role="button" id = "Accommodation"><input type="radio" name="options" value="0">Accomodation</div>
+                                       <div class="btn" role="button" id = "Art"><input type="radio" name="options" value="0">Art</div>
+                                       <div class="btn" role="button" id = "Administration"><input type="radio" name="options" value="0">Administration</div>
+                                       <div class="btn" role="button" id = "Healthcare"><input type="radio" name="options" value="0">Healthcare</div>
+                                       <div class="btn" role="button" id = "Wholesale"><input type="radio" name="options" value="0">Wholesale</div>
+                                       <div class="btn" role="button" id = "Construction"><input type="radio" name="options" value="0">Construction</div>
+                                       <div class="btn" role="button" id = "Management"><input type="radio" name="options" value="0">Management</div>
+                                       <div class="btn active" role="button" id = "Manufacturing"><input type="radio" name="options" value="0">Manufacturing</div>
+                                       <div class="btn" role="button" id = "Professional"><input type="radio" name="options" value="0">Professional</div>
+                                       <div class="btn" role="button" id = "PublicAdmin"><input type="radio" name="options" value="0">PublicAdmin</div>
+                                       <div class="btn" role="button" id = "RealEstate"><input type="radio" name="options" value="0">Real Estate</div>
+                                       <div class="btn" role="button" id = "Finance"><input type="radio" name="options" value="0">Finance</div>
+                                </div>
+                        </div>
+                        <!--END DIV FOR CONTROLS  -->
+
+                      </div>
+
+                      <div id="tab2_content" style="display: none;">
+
+                      Some Other Content
+
+                      </div>
+              </div>
       </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
 
     <div id="year2005">
       <h1>2005</h1>

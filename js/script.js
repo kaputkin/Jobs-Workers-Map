@@ -208,8 +208,8 @@ var financeSide = L.layerGroup([Finance10_05,Finance10_15]);
 var total_hSide = L.layerGroup([Total10h_05,Total10h_15]);
 var total_wSide = L.layerGroup([Total10w_05,Total10w_15]);
 
-L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05],
-                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_15, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15]).addTo(map);
+L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05,Finance10_05],
+                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_15, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15,Finance10_15]).addTo(map);
 
 //Add Buttons
 
@@ -321,3 +321,18 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
 
 //toggle menu bottons
     $(".btn-group-toggle").twbsToggleButtons();
+
+
+//Testing tab menus
+$(document).ready(function() {
+    //Add a click function to all list elements within ul#tab_links
+    $('ul#tab_links li').click(function() {
+    //Remove the active class from all the list elements and hide all the tab contents
+    $('ul#tab_links li').removeClass('active');
+    $('div#tab_contents').children().hide();
+
+    //Add the active class to the clicked element and show its contents
+    $(this).addClass('active');
+    $('div#' + jQuery(this).attr('id') + '_content').show();
+    });
+});
