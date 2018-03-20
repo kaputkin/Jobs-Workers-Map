@@ -1,6 +1,6 @@
 var map =
     L.map('my-map').setView([40.713435,-73.971291], 11);
-    var Stamen_TerrainBackground = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+    L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
     	minZoom: 10,
     	maxZoom: 15,
     	ext: 'png'
@@ -190,6 +190,15 @@ var subway = L.layerGroup([lines,stops]);
                                         maxZoom: 15
         });
 
+      //Education
+        var Education10_05 = L.tileLayer('data/Education10_05/data/{z}/{x}/{y}.png', {
+                                        maxZoom: 15
+        });
+
+        var Education10_15 = L.tileLayer('data/Education10_15/data/{z}/{x}/{y}.png', {
+                                        maxZoom: 15
+        });
+
 
 //Groups sector years together for slider function
 //Layer Groups
@@ -205,11 +214,12 @@ var professionalSide = L.layerGroup([Professional10_05,Professional10_15]);
 var pubAdminSide = L.layerGroup([PubAdmin10_05,PubAdmin10_15]);
 var realEstateSide = L.layerGroup([RealEstate10_05,RealEstate10_15]);
 var financeSide = L.layerGroup([Finance10_05,Finance10_15]);
+var educationSide = L.layerGroup([Education10_05,Education10_15]);
 var total_hSide = L.layerGroup([Total10h_05,Total10h_15]);
 var total_wSide = L.layerGroup([Total10w_05,Total10w_15]);
 
-L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05,Finance10_05],
-                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_15, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15,Finance10_15]).addTo(map);
+L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, Wholesale10_05, Construction10_05, Management10_05, Manufacturing10_05, Professional10_05, PubAdmin10_05, RealEstate10_05, Total10h_05, Total10w_05,Finance10_05,Education10_05],
+                     [Art10_15, Admin10_15, Accommodation10_15,Healthcare10_15, Wholesale10_15, Construction10_15, Management10_15, Manufacturing10_15, Professional10_15, PubAdmin10_15, RealEstate10_15, Total10h_15, Total10w_15,Finance10_15,Education10_15]).addTo(map);
 
 //Add Buttons
 
@@ -241,6 +251,12 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
     $("#Finance").click(function() {
     layerGroup.clearLayers();
     layerGroup.addLayer(financeSide)
+    });
+
+    //Education Button
+    $("#Education").click(function() {
+    layerGroup.clearLayers();
+    layerGroup.addLayer(educationSide)
     });
 
     //Art Button
