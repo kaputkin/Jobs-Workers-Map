@@ -16,7 +16,7 @@
 }
 
 #button {
-       width: 100px;
+    width: 100px;
 }
 
 .center {
@@ -25,11 +25,29 @@
 }
 
 #legend{
-position: absolute;
-top: 85%;
-left: 20;
-bottom: 0;
-z-index: 1000;
+  position: absolute;
+  top: 85%;
+  left: 20;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.year2005{
+  position: absolute;
+  z-index: 1000;
+  left:150;
+  color: #ffffff;
+  font-family: 'Viga', sans-serif;
+  font-size: 35px;
+}
+
+.year2015{
+  position: absolute;
+  z-index: 2000;
+  left:550;
+  color: #ffffff;
+  font-family: 'Viga', sans-serif;
+  font-size: 35px;
 }
 
 h1{
@@ -105,50 +123,51 @@ b{
 
 
 .btn-success {
-        color: #fff5f7;
-        background-color: #202020;
-        border-color: #181d18;
-    }
+    color: #fff5f7;
+    background-color: #202020;
+    border-color: #181d18;
+}
 
 .btn-success.active {
-            color: #fff5f7;
-            background-color: #202020;
-            border-color: #181d18;
-        }
+    color: #fff5f7;
+    background-color: #202020;
+    border-color: #181d18;
+}
 
 .btn-success:hover {
-            color: #fff5f7;
-            background-color:#202020;
-            border-color:  #181d18;
-        }
+    color: #fff5f7;
+    background-color:#202020;
+    border-color:  #181d18;
+}
 
 .btn-secondary {
-        color: #fff5f7;
-        background-color: #666666;
-        border-color: #181d18;
-        width:50%;
-        }
+    color: #fff5f7;
+    background-color: #666666;
+    border-color: #181d18;
+    width:50%;
+}
 
 .btn-group-vertical>.btn, .btn-group-vertical>.btn-group, .btn-group-vertical>.btn-group>.btn {
-            display: block;
-            float: none;
-            width: 75%;
-            max-width: 100%;
-            margin-left: 35px;
-       }
+    display: block;
+    float: none;
+    width: 75%;
+    max-width: 100%;
+    margin-left: 35px;
+}
 
 .btn-group-vertical>.btn:not(:first-child){
-           border-radius: 0;
-           margin-left: 35px;
-       }
+    border-radius: 0;
+   margin-left: 35px;
+}
 
 #tabs{
-  margin-top: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
-  font-family: 'Viga', sans-serif;
-  color: #fff5f7;
+      margin-top: 25px;
+      margin-left: 15px;
+      margin-right: 15px;
+      font-family: 'Viga', sans-serif;
+      color: #fff5f7;
 }
+
 ul#tab_links {
         list-style:none;
         color:#fff5f7;
