@@ -1,3 +1,4 @@
+//set up Leaflet map
 var map =
     L.map('my-map').setView([40.713435,-73.971291], 11);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
@@ -8,6 +9,7 @@ var map =
 
 var layerGroup = L.layerGroup().addTo(map);
 
+//set style for walkshed layer
 var walkStyle = {
         color: "black",
         fillOpacity: .5
@@ -16,7 +18,7 @@ var walkStyle = {
 //adds 10 minute walkshed
 var tenMin = L.geoJSON(walkBuffer, {style: walkStyle});
 
-//adds subway lines and adds colors
+//adds colors to subway lines and sets geoJSON as variable
 var lines = L.geoJSON(subwaylines, {
       style:
       function(feature) {
@@ -64,7 +66,7 @@ var stops = L.geoJSON(subwaystops, {
 //groups stops and lines
 var subway = L.layerGroup([lines,stops]);
 
-//Begin to add raster tiles by sector
+//Add raster tiles by sector
     //Finance
         var Finance10_15 = L.tileLayer('data/Finance10_15/data/{z}/{x}/{y}.png', {
           maxZoom: 15
@@ -163,7 +165,7 @@ var subway = L.layerGroup([lines,stops]);
                                         maxZoom: 15
         });
 
-      //Management
+      //Professional
         var Professional10_05 = L.tileLayer('data/Professional10_05/data/{z}/{x}/{y}.png', {
                                         maxZoom: 15
         });
@@ -200,12 +202,12 @@ var subway = L.layerGroup([lines,stops]);
         });
 
 
-//Groups sector years together for slider function
-//Layer Groups
+//Groups sector years together for as required by side-by-side function
+
 var artSide = L.layerGroup([Art10_05,Art10_15]);
 var adminSide = L.layerGroup([Admin10_05,Admin10_15]);
 var accommodationSide = L.layerGroup([Accommodation10_05,Accommodation10_15]);
-var healthcareSide = L.layerGroup([Healthcare10_05,Healthcare10_15]);  // check 2015 workers
+var healthcareSide = L.layerGroup([Healthcare10_05,Healthcare10_15]);  //2015 healthercare workers layer incorrect
 var wholesaleSide = L.layerGroup([Wholesale10_05,Wholesale10_15]);
 var constructionSide = L.layerGroup([Construction10_05,Construction10_15]);
 var managementSide = L.layerGroup([Management10_05,Management10_15]);
@@ -335,11 +337,11 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
     layerGroup.addLayer(total_wSide)
     });
 
-//toggle menu bottons
+//Toggles tab menu bottons
     $(".btn-group-toggle").twbsToggleButtons();
 
 
-//Contorls for tab menu
+//function for controlling tab menu
 $(document).ready(function() {
     //Add a click function to all list elements within ul#tab_links
     $('ul#tab_links li').click(function() {
@@ -353,5 +355,6 @@ $(document).ready(function() {
     });
 });
 
+//appends years element to side-by-side divider
 var yearsEl = document.getElementById('years');
 document.querySelector('.leaflet-sbs-divider').appendChild(yearsEl);
