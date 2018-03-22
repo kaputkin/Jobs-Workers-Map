@@ -339,7 +339,7 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
     $(".btn-group-toggle").twbsToggleButtons();
 
 
-//Testing tab menus
+//Contorls for tab menu
 $(document).ready(function() {
     //Add a click function to all list elements within ul#tab_links
     $('ul#tab_links li').click(function() {
@@ -352,3 +352,6 @@ $(document).ready(function() {
     $('div#' + jQuery(this).attr('id') + '_content').show();
     });
 });
+
+var yearsEl = document.getElementById('years');
+document.querySelector('.leaflet-sbs-divider').appendChild(yearsEl);

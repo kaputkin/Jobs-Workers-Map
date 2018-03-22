@@ -32,22 +32,12 @@
   z-index: 1000;
 }
 
-.year2005{
-  position: absolute;
-  z-index: 1000;
-  left:150;
-  color: #ffffff;
-  font-family: 'Viga', sans-serif;
-  font-size: 35px;
-}
-
-.year2015{
-  position: absolute;
-  z-index: 2000;
-  left:550;
-  color: #ffffff;
-  font-family: 'Viga', sans-serif;
-  font-size: 35px;
+#years {
+  width: 200px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 30px;
+  color: #e9e9e9;
 }
 
 h1{
