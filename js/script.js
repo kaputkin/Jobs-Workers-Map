@@ -340,7 +340,6 @@ L.control.sideBySide([Art10_05, Admin10_05, Accommodation10_05,Healthcare10_05, 
 //Toggles tab menu bottons
     $(".btn-group-toggle").twbsToggleButtons();
 
-
 //function for controlling tab menu
 $(document).ready(function() {
     //Add a click function to all list elements within ul#tab_links
